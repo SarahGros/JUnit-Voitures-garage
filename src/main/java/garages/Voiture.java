@@ -99,13 +99,12 @@ public class Voiture {
      */
     public void imprimeStationnements(PrintStream out) {
         // TODO: Implémenter cette méthode
-        String nomDuGarage;
-        for (Garage g : this.garagesVisites()) {
-            nomDuGarage = g.getName();
-            System.out.println(g.toString() + " :");
-            for (int i = 0; i < this.myStationnements.size(); i++) {
-                if (this.myStationnements.get(i).getGarage().getName() == nomDuGarage) {
-                    System.out.println("    " + this.myStationnements.get(i).toString());
+        
+         for (Garage g : this.garagesVisites()) {
+            out.println(g.toString()+" :");
+            for(Stationnement s : this.myStationnements) {
+                if (s.getGarage().getName().equals(g.getName())){
+                    out.println("    " + s.toString());
                 }
             }
         }
